@@ -239,8 +239,8 @@ Widget build(BuildContext context) {
                                     '''
 Name: ${data.personname}
 Age: ${data.personage}
-Weight: ${data.personweight}
-Height: ${data.personheight}               
+Height: ${data.personweight}
+Weight: ${data.personheight}               
                                     ''',
                                     style: GoogleFonts.acme(
                                       fontSize: 25,

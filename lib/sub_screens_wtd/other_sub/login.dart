@@ -104,7 +104,7 @@ class LoginScreen extends StatelessWidget {
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
                               counterText: '',
-                              hintText: 'Height',
+                              hintText: 'Weight',
                               filled: true,
                               fillColor: const Color.fromARGB(255, 255, 255, 255),
                               border: OutlineInputBorder(
@@ -124,7 +124,7 @@ class LoginScreen extends StatelessWidget {
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
                               counterText: '',
-                              hintText: 'Weight',
+                              hintText: 'Height',
                               filled: true,
                               fillColor: const Color.fromARGB(255, 255, 255, 255),
                               border: OutlineInputBorder(

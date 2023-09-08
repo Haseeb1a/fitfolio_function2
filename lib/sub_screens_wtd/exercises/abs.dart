@@ -1,8 +1,7 @@
+// ignore_for_file: prefer_const_constructors_in_immutables
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
-import 'package:workouttraker/function/db_functions/db_functions.dart';
-import 'package:workouttraker/model/task_model/workoutmodel1.dart';
 import 'package:workouttraker/sub_screens_wtd/other_sub/create.dart';
 
 
@@ -205,7 +204,7 @@ class Abs extends StatelessWidget {
                           width: 5,
                         ),
                         Text(
-                          'wistiing Hip-Raise 2',
+                          'Twistiing Hip-Raise 2',
                           style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                         ),
                       ])),
@@ -220,7 +219,7 @@ class Abs extends StatelessWidget {
 class ModelsPage extends StatelessWidget {
   final Mymodel mymodel;
 
-  ModelsPage({required this.mymodel});
+  const ModelsPage({super.key, required this.mymodel});
 
   @override
   Widget build(BuildContext context) {
@@ -233,7 +232,7 @@ class ModelsPage extends StatelessWidget {
 class Models extends StatefulWidget {
   final Mymodel mymodel;
 
-  Models({required this.mymodel});
+  Models({super.key, required this.mymodel});
 
   @override
   State<Models> createState() => _ModelsState();
@@ -271,7 +270,6 @@ class _ModelsState extends State<Models> {
                   'Muscle: ${widget.mymodel.Text}',
                   style: GoogleFonts.alegreyaSc(
                       fontSize: 26, fontStyle: FontStyle.italic),
-                  // style: TextStyle(fontSize: 20,fontStyle: FontStyle.italic),
                 ),
               ),
               const SizedBox(
@@ -294,8 +292,8 @@ class _ModelsState extends State<Models> {
                           builder: (context) => const Textng(),
                         ));
                   },
-                  child: const Icon(Icons.add),
                   backgroundColor: Colors.black,
+                  child: const Icon(Icons.add),
                 ),
                 const SizedBox(
                   width: 15,
@@ -311,7 +309,9 @@ class _ModelsState extends State<Models> {
 }
 class Mymodel {
   final String images;
+  // ignore: non_constant_identifier_names
   final String Text;
+  // ignore: non_constant_identifier_names
   final String Text1;
 
   Mymodel(this.images, this.Text, this.Text1);

@@ -1,8 +1,7 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors, non_constant_identifier_names
 
-// ----------------------------------------------------
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:workouttraker/main_wgts/bottom_main.dart';
 import 'package:workouttraker/sub_screens_wtd/other_SUB/create.dart';
 
 class Triceps extends StatelessWidget {
@@ -52,7 +51,7 @@ class Triceps extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/triceps.jpg') ,radius:31,),
                                         const SizedBox(width: 5,),
                                         Text(
-                                        'StabilityBallPress',
+                                        'Stability BallPress',
                                        style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -97,7 +96,7 @@ class Triceps extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/triceps.jpg') ,radius:31,),
                                         const SizedBox(width: 5,),
                                         Text(
-                                        'CloseGripBench',
+                                        'Close-GripBench',
                                          style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -140,7 +139,7 @@ class Triceps extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/triceps.jpg') ,radius:31,),
                                         const SizedBox(width: 5,),
                                         Text(
-                                        'TricepsKickBacks',
+                                        'Triceps KickBacks',
                                         style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -185,7 +184,7 @@ class Triceps extends StatelessWidget {
                                       
                                         const SizedBox(width: 5,),
                                         Text(
-                                        'OneArmDumBell',
+                                        'One-ArmDumBell',
                                          style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -203,7 +202,7 @@ class Triceps extends StatelessWidget {
 class ModelsPage extends StatelessWidget {
   final Mymodel mymodel;
 
-  ModelsPage({required this.mymodel});
+  const ModelsPage({super.key, required this.mymodel});
 
   @override
   Widget build(BuildContext context) {
@@ -260,7 +259,7 @@ class Models extends StatelessWidget {
                 children: [FloatingActionButton(onPressed: (){
                    Navigator.push(context, MaterialPageRoute(builder:(context) => const Textng(),));
                 
-                },child: const Icon(Icons.add),backgroundColor: Colors.black,),
+                },backgroundColor: Colors.black,child: const Icon(Icons.add),),
                  const SizedBox(width: 15,),]
                 ),
                

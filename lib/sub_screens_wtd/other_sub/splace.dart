@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:workouttraker/sub_screens_wtd/other_sub/login.dart';
-// import 'package:workouttraker/main_wgts/bottom_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SplaceScreen extends StatefulWidget {
@@ -16,7 +14,7 @@ class _SplaceScreenState extends State<SplaceScreen> {
     await Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) =>LoginScreen()),
+        MaterialPageRoute(builder: (context) => LoginScreen()),
       );
     });
   }
@@ -29,7 +27,6 @@ class _SplaceScreenState extends State<SplaceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -42,18 +39,17 @@ class _SplaceScreenState extends State<SplaceScreen> {
             children: [
               SizedBox(
                 height: screenHeight * 0.4,
-                // width:  screenHeight * 0.8,
+                width: double.infinity,
                 child: Image.asset(
                   'assets/images/fitfolio-logo (1).png',
                   fit: BoxFit.fill,
                 ),
               ),
-               Text(
-                                        'LetStart..',
-                                        style: GoogleFonts.acme(fontSize: 25,fontStyle: FontStyle.italic),
-               
-                                      )
-              // Text('LetStart..',style: TextStyle( fontSize: 30 ,fontFamily:AutofillHints.telephoneNumberLocal,fontWeight: FontWeight.w500,color: Colors.black),)
+              Text(
+                'LetStart..',
+                style:
+                    GoogleFonts.acme(fontSize: 25, fontStyle: FontStyle.italic),
+              )
             ],
           ),
         ),

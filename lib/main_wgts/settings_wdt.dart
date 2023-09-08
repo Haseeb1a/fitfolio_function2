@@ -1,9 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:workouttraker/sub_screens_wtd/settings_sub/about.dart';
-import 'package:workouttraker/sub_screens_wtd/settings_sub/profile.dart';
+import 'package:workouttraker/sub_screens_wtd/settings_sub/terms_&_condition.dart';
 import 'package:workouttraker/utility/reset_function.dart';
 
 class Settings extends StatefulWidget {
@@ -27,40 +26,13 @@ class _SettingsState extends State<Settings> {
         title: const Center(child: Text('Settings')),
 
       ),
-      backgroundColor: const Color.fromARGB(225, 27, 57, 61),
+      backgroundColor:  const Color.fromARGB(255, 255, 255, 255),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(
-              child: GestureDetector(
-                onTap:(){
-                 Navigator.push(context, MaterialPageRoute(builder: (context) =>const Profile(),));
-                },
-                child: Container(
-                                  width: 360,
-                                  height: 70,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: const Color.fromARGB(255, 255, 255, 255),
-                                    border: Border.all(
-                                        color: const Color.fromARGB(255, 255, 255, 255)),
-                                  ),
-      
-                                  child: const Row(
-      
-      
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children:[  Icon(Icons.person_pin,size: 50,),
-                                      Text(
-                                      'PROFILE',
-                                      style: TextStyle(fontSize: 27),
-              
-                                    ),]
-                                  )),
-              ),
-              
+            const Center(
             ),
             const SizedBox(
               height: 27,
@@ -74,22 +46,51 @@ class _SettingsState extends State<Settings> {
                                   height: 70,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: const Color.fromARGB(255, 255, 255, 255),
+                                  color: const Color.fromARGB(255, 0, 0, 0),
                                   border: Border.all(
-                                      color: const Color.fromARGB(255, 255, 255, 255)),
+                                        width: 3.9,
+                                        color: const Color.fromARGB(225, 27, 57, 61)),
                                 ),
       
                                 child:const  Center(
       
                                   child: Text(
                                     'ABOUT',
-                                    style: TextStyle(fontSize: 27),
+                                    style: TextStyle(fontSize: 27,color: Colors.white),
                                   ),
                                 )),
             ),
              const SizedBox(
               height: 27,
-            ),
+            ),  GestureDetector(
+                onTap:(){
+                 Navigator.push(context, MaterialPageRoute(builder: (context) =>const TermsAndCondtion(),));
+                },
+                child: Container(
+                                  width: 360,
+                                  height: 70,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: const Color.fromARGB(255, 0, 0, 0),
+                                    border: Border.all(
+                                      width: 3.9,
+                                        color: const Color.fromARGB(225, 27, 57, 61)),
+                                  ),
+      
+                                  child: const Row(
+      
+      
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children:[  
+                                      Text(
+                                      'TERMS & CONDITIONS',
+                                      style: TextStyle(fontSize: 27,color:Color.fromARGB(255, 255, 255, 255) ),
+              
+                                    ),]
+                                  )),
+              ),  const SizedBox(
+              height: 27,
+            ), 
                               GestureDetector(
                                onTap: () {
                                  resetDB(context);
@@ -98,17 +99,18 @@ class _SettingsState extends State<Settings> {
                                  width: 360,
                                   height: 70,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: const Color.fromARGB(255, 255, 255, 255),
-                                  border: Border.all(
-                                      color: const Color.fromARGB(255, 255, 255, 255)),
-                                ),
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: const Color.fromARGB(255, 0, 0, 0),
+                                    border: Border.all(
+                                      width: 3.9,
+                                        color: const Color.fromARGB(225, 27, 57, 61)),
+                                  ),
                                     
                                     
                                   child: const Center(
                                     child: Text(
                                       'RESET',
-                                      style: TextStyle(fontSize: 27),
+                                      style: TextStyle(fontSize: 27,color: Colors.white),
                                     ),
                                   ),
                                 ),
@@ -116,17 +118,18 @@ class _SettingsState extends State<Settings> {
                                const SizedBox(
               height: 27,
             ),
-                              GestureDetector(
+                              GestureDetector(                            
                                 onTap: () =>exit(0),
                                 child: Container(
                                   width: 360,
                                   height: 70,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: const Color.fromARGB(255, 255, 255, 255),
-                                  border: Border.all(
-                                      color: const Color.fromARGB(255, 255, 255, 255)),
-                                ),
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: const Color.fromARGB(255, 0, 0, 0),
+                                    border: Border.all(
+                                      width: 3.9,
+                                        color: const Color.fromARGB(225, 27, 57, 61)),
+                                  ),
                                     
                                 child: const Center(
                                     
@@ -134,9 +137,12 @@ class _SettingsState extends State<Settings> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text('EXIT',style: TextStyle(fontSize: 27),),
+                                      Text('EXIT',
+                                      
+                                      style: TextStyle(fontSize: 27,color: Colors.white),
+                                      ),
                                       Icon(
-                                        Icons.exit_to_app,size: 30,
+                                        Icons.exit_to_app,size: 30,color: Colors.white,
                                         // style: TextStyle(fontSize: 30),
                                       ),
                                     ],

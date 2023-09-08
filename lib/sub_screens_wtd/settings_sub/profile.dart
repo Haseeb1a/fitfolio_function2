@@ -1,12 +1,11 @@
-import 'dart:io';
+// ignore_for_file: use_key_in_widget_constructors
 
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:workouttraker/function/db_functions/db_functions.dart';
 import 'package:workouttraker/function/db_functions/db_person.dart';
 import 'package:workouttraker/model/person_model/persondata.dart';
-import 'package:workouttraker/model/task_model/workoutmodel1.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:workouttraker/sub_screens_wtd/other_sub/profileedit.dart';
 

@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, prefer_const_constructors_in_immutables, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:workouttraker/sub_screens_wtd/other_SUB/create.dart';
@@ -95,7 +97,7 @@ class Biceps extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/biceps.jpg') ,radius:31,),
                                       const SizedBox(width: 5,),
                                         Text(
-                                        'BarBellCurls',
+                                        'BarBell Curls',
                                         style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -181,7 +183,7 @@ class Biceps extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/biceps.jpg') ,radius:31,),
                                       const SizedBox(width: 5,),
                                         Text(
-                                        'Dumbbellbiceps ',
+                                        'Dumbbell biceps ',
                                          style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -224,7 +226,7 @@ class Biceps extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/biceps.jpg') ,radius:31,),
                                       const SizedBox(width: 5,),
                                         Text(
-                                        'Concentration ',
+                                        'Concentration Curls',
                                          style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -299,7 +301,7 @@ class Models extends StatelessWidget {
                 children: [FloatingActionButton(onPressed: (){
                    Navigator.push(context, MaterialPageRoute(builder:(context) => const Textng(),));
                 
-                },child: const Icon(Icons.add),backgroundColor: Colors.black,),
+                },backgroundColor: Colors.black,child: const Icon(Icons.add),),
                  const SizedBox(width: 15,),]
                 ),
                
@@ -315,6 +317,7 @@ class Models extends StatelessWidget {
 class Mymodel {
   final String images;
   final String Text;
+ 
   final String Text1;
 
   Mymodel(this.images, this.Text,this.Text1);

@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workouttraker/sub_screens_wtd/exercises/abs.dart';
@@ -25,7 +22,8 @@ class HomeEx extends StatefulWidget {
 
 class _HomeExState extends State<HomeEx> {
   String? _profileImagePath;
-   void initState() {
+   @override
+     void initState() {
     super.initState();
     _loadProfileImage();
   }

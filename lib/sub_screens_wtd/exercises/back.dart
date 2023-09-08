@@ -1,5 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
 
-// ----------------------------------------------------------
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:workouttraker/sub_screens_wtd/other_SUB/create.dart';
@@ -137,7 +137,7 @@ class Back extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/wings.jpg') ,radius:31,),
                                       const SizedBox(width: 5),
                                         Text(
-                                        'DumbbellRow ',
+                                        'Dumbbell Row ',
                                          style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -209,7 +209,7 @@ class ModelsPage extends StatelessWidget {
 class Models extends StatelessWidget {
   final Mymodel mymodel;
 
-  Models({required this.mymodel});
+  const Models({super.key, required this.mymodel});
 
   @override
   Widget build(BuildContext context) {
@@ -254,7 +254,7 @@ class Models extends StatelessWidget {
                 children: [FloatingActionButton(onPressed: (){
                    Navigator.push(context, MaterialPageRoute(builder:(context) => const Textng(),));
                   
-                },child: const Icon(Icons.add),backgroundColor: Colors.black,),
+                },backgroundColor: Colors.black,child: const Icon(Icons.add),),
                  const SizedBox(width: 15,),]
                 ),
                
@@ -269,7 +269,9 @@ class Models extends StatelessWidget {
 
 class Mymodel {
   final String images;
+  // ignore: non_constant_identifier_names
   final String Text;
+  // ignore: non_constant_identifier_names
   final String Text1;
 
   Mymodel(this.images, this.Text,this.Text1);

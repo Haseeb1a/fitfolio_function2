@@ -1,6 +1,7 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:workouttraker/main_wgts/bottom_main.dart';
 import 'package:workouttraker/sub_screens_wtd/other_SUB/create.dart';
 
 class Shoulder extends StatelessWidget {
@@ -51,7 +52,7 @@ class Shoulder extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/shoulders.jpg') ,radius:31,),
                                         const SizedBox(width: 5,),
                                         Text(
-                                        'BackPresses',
+                                        'Back Presses',
                                         style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -138,7 +139,7 @@ class Shoulder extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/shoulders.jpg') ,radius:31,),
                                         const SizedBox(width: 5,),
                                         Text(
-                                        'ArnoldPress',
+                                        'Arnold Press',
                                       style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -257,7 +258,7 @@ class Models extends StatelessWidget {
                 children: [FloatingActionButton(onPressed: (){
                    Navigator.push(context, MaterialPageRoute(builder:(context) => const Textng(),));
                 
-                },child: const Icon(Icons.add),backgroundColor: Colors.black,),
+                },backgroundColor: Colors.black,child: const Icon(Icons.add),),
                  const SizedBox(width: 15,),]
                 ),
                

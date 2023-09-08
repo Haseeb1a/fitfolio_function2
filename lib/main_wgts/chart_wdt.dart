@@ -1,20 +1,11 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:workouttraker/function/db_functions/db_functions.dart';
-
-import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:fl_chart/fl_chart.dart';
-import 'package:workouttraker/function/db_functions/db_functions.dart';
-
 class Chart extends StatefulWidget {
   final bool checkboxStatus;
   final DateTime currentDate;
 
-  const Chart({
+  const Chart({super.key, 
     required this.checkboxStatus,
     required this.currentDate,
   });
@@ -46,7 +37,7 @@ class ChartState extends State<Chart> {
         title: const Center(child: Text('chart')),
       ),
       body: Card(
-        color: Color.fromARGB(255, 255, 255, 255),
+        color: const Color.fromARGB(255, 255, 255, 255),
         child: AspectRatio(
           aspectRatio: 1.1,
           child: Column(
@@ -63,19 +54,19 @@ class ChartState extends State<Chart> {
       children: [
         Row(
           children: [
-            Icon(Icons.list_alt_outlined, size: 25, color: Color.fromARGB(225, 27, 57, 61)),
+            const Icon(Icons.list_alt_outlined, size: 25, color: Color.fromARGB(225, 27, 57, 61)),
             Text('Totaltask ${_selectedValue == 'Day' ? daytotal : _selectedValue == 'Week' ? weektotal : _selectedValue == 'Month' ? monthtotal : 0}'),
           ],
         ),
         Row(
           children: [
-            Icon(Icons.task_alt_outlined, color: Colors.green),
+            const Icon(Icons.task_alt_outlined, color: Colors.green),
             Text('Completed ${_selectedValue == 'Day' ? dayCompleted : _selectedValue == 'Week' ? weekcompleted : _selectedValue == 'Month' ? monthcompleted : 0}'),
           ],
         ),
         Row(
           children: [
-            Icon(Icons.clear_outlined, color: Colors.red),
+            const Icon(Icons.clear_outlined, color: Colors.red),
             Text('Not Completed ${_selectedValue == 'Day' ? daydiffrence: _selectedValue == 'Week' ? weekdiffrence : _selectedValue == 'Month' ? monthdiffrence : 0}'),
           ],
         ),
@@ -91,11 +82,11 @@ class ChartState extends State<Chart> {
     height: 2,
     color: const Color.fromARGB(255, 255, 255, 255),
   ),
-                    dropdownColor: Color.fromARGB(255, 255, 255, 255),
-                    focusColor: Color.fromARGB(255, 255, 255, 255),
+                    dropdownColor: const Color.fromARGB(255, 255, 255, 255),
+                    focusColor: const Color.fromARGB(255, 255, 255, 255),
                     alignment: Alignment.bottomCenter,
                     padding: const EdgeInsetsDirectional.all(3),
-                    icon: Icon(Icons.arrow_drop_down,color:  const Color.fromARGB(225, 27, 57, 61)),
+                    icon: const Icon(Icons.arrow_drop_down,color:  Color.fromARGB(225, 27, 57, 61)),
                     
                     borderRadius: BorderRadius.circular(15),
                     
@@ -165,7 +156,7 @@ class ChartState extends State<Chart> {
     int monthtotal= getMonthTasksCount();
     int monthcompleted=getMonthTasksCountmonth() ;
     
-    print(weekcompleted);
+
     // print(allweek);
     switch (_selectedValue) {
       case 'Day':
@@ -201,7 +192,7 @@ class ChartState extends State<Chart> {
   List<PieChartSectionData> generateChartData(double value1, double value2) {
   final List<Color> colors = [Colors.green[900]!, Colors.red[400]!];
   final List<double> values = [value1, value2];
-    print(value1);
+   
 
   // Handle division by zero
   if (values.any((value) => value.isNaN || value.isInfinite || value.isNegative)) {
@@ -214,11 +205,11 @@ class ChartState extends State<Chart> {
         
         
         radius: 100.0,
-        titleStyle: TextStyle(
+        titleStyle: const TextStyle(
           
           fontSize: 16.0,
           fontWeight: FontWeight.bold,
-          color: const Color(0xffffffff),
+          color: Color(0xffffffff),
           shadows: [Shadow(color: Colors.black, blurRadius: 2)],
         ),
           titlePositionPercentageOffset: 0.0,

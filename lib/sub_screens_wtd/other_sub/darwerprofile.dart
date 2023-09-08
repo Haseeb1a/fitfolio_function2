@@ -1,33 +1,17 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hive_flutter/adapters.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
-
-import 'dart:io';
-
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workouttraker/sub_screens_wtd/other_sub/profileedit.dart';
-
 import '../../function/db_functions/db_person.dart';
 import '../../model/person_model/persondata.dart';
+
 class Profile extends StatefulWidget {
   final void Function(String?) onProfileImageChanged;
 
-  const Profile({Key? key, required this.onProfileImageChanged}) : super(key: key);
+  const Profile({Key? key, required this.onProfileImageChanged})
+      : super(key: key);
 
   @override
   State<Profile> createState() => _ProfileState();
@@ -74,179 +58,98 @@ class _ProfileState extends State<Profile> {
   }
 
   @override
-Widget build(BuildContext context) {
-  double screenWidth = MediaQuery.of(context).size.width;
-  double screenHeight = MediaQuery.of(context).size.height;
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    // double screenHeight = MediaQuery.of(context).size.height;
 
-  return ValueListenableBuilder<List<persondata>>(
-    valueListenable: persondataListNotifier,
-    builder: (context, persondatalist, _) {
-      if (persondatalist.isEmpty) {
-        return const CircularProgressIndicator();
-      }
+    return ValueListenableBuilder<List<persondata>>(
+      valueListenable: persondataListNotifier,
+      builder: (context, persondatalist, _) {
+        if (persondatalist.isEmpty) {
+          return const CircularProgressIndicator();
+        }
 
-      final data = persondatalist[0];
+        final data = persondatalist[0];
 
-      return Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 230, 189),
-        appBar: AppBar(
-          backgroundColor: const Color.fromARGB(225, 27, 57, 61),
-          title: const Center(
-            child: Text('Profile'),
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Profileedit(
-                      personname: data.personname,
-                      personage: data.personage,
-                      personheight: data.personheight,
-                      index: 0,
-                      personweight: data.personweight,
-                    ),
-                  ),
-                );
-              },
-              icon: const Icon(Icons.edit),
-              color: Colors.white,
-              iconSize: 25,
+        return Scaffold(
+          backgroundColor: const Color.fromARGB(255, 255, 230, 189),
+          appBar: AppBar(
+            backgroundColor: const Color.fromARGB(225, 27, 57, 61),
+            title: const Center(
+              child: Text('Profile'),
             ),
-          ],
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(2.0),
-          child: Card(
-            color: Color.fromARGB(255, 255, 255, 255),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: GestureDetector(
-                  onTap: _pickImage,
-                  child: Container(
-                    width: 140,
-                    height: 140,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 5,
-                        color: const Color.fromARGB(225, 27, 57, 61),
-                      ),
-                      shape: BoxShape.circle,
-                      color: Colors.grey[300],
-                    ),
-                    child: ClipOval(
-                      child: Stack(
-                        fit: StackFit.expand,
-                        children: [
-                          _selectedImage != null
-                              ? Image.file(
-                    _selectedImage!,
-                    fit: BoxFit.cover,
-                  )
-                              : Icon(
-                    Icons.person,
-                    size: 100,
-                    color: Colors.grey[600],
-                  ), // Person icon as default image
-                          // if (_selectedImage == null)
-                            Align(
-                              alignment: Alignment.bottomRight,
-                              child: Container(
-                  height: 55,
-                  width: 55,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(50),
-                    ),
-                  ),
-                  child: const Icon(
-                    Icons.edit,
-                    size: 21,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                              ),
-                            ),
-                        ],
+            actions: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Profileedit(
+                        personname: data.personname,
+                        personage: data.personage,
+                        personheight: data.personheight,
+                        index: 0,
+                        personweight: data.personweight,
                       ),
                     ),
-                  ),
-                ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      // Container(
-                      //   width: screenHeight * 0.2,
-                      //   height: screenHeight * 0.9,
-                      //   alignment: Alignment.center,
-                      //   decoration: BoxDecoration(
-                      //     borderRadius: BorderRadius.circular(15),
-                      //   ),
-                      //   child: ClipRRect(
-                      //     borderRadius: BorderRadius.circular(30.0),
-                      //     child: Image.asset('assets/images/full body.png'),
-                      //   ),
-                      // ),
-                      SizedBox(
-                        width: screenWidth * 0.02,
-                      ),
-                      SizedBox(
-                        // width: screenWidth * 0.47,
-                        // height: screenHeight * 0.52,
-                        child: Container(
-                          height: 370,
-                          
-                          width: 250,
-                    decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(3),
-                  bottomLeft: Radius.circular(50),
-                  topRight: Radius.circular(40),
-                  bottomRight: Radius.circular(3),
-                  ),
-                  border: Border.all(
-                  color: Color.fromARGB(224, 255, 255, 255), // Set your desired border color here
-                  width: 2.0, // Set the border width
-                  ),
-                  color: Color.fromARGB(255, 255, 230, 189),
-                  boxShadow: [
-      BoxShadow(
-        color: Colors.grey.withOpacity(0.5), // Shadow color
-        spreadRadius: 3.7, // Spread radius
-        blurRadius: 7, // Blur radius
-        offset: Offset(1, 3), // Offset in x and y directions
-      ),
-    ],
-                ),
-                  
-                          
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                  );
+                },
+                icon: const Icon(Icons.edit),
+                color: Colors.white,
+                iconSize: 25,
+              ),
+            ],
+          ),
+          body: Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: Card(
+              color: const Color.fromARGB(255, 255, 255, 255),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(3.0),
+                    child: GestureDetector(
+                      onTap: _pickImage,
+                      child: Container(
+                        width: 140,
+                        height: 140,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 5,
+                            color: const Color.fromARGB(225, 27, 57, 61),
+                          ),
+                          shape: BoxShape.circle,
+                          color: Colors.grey[300],
+                        ),
+                        child: ClipOval(
+                          child: Stack(
+                            fit: StackFit.expand,
                             children: [
-                              const SizedBox(height: 5,),
-                              Center(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Text(
-                                    '''
-Name: ${data.personname}
-Age: ${data.personage}
-Height: ${data.personweight}
-Weight: ${data.personheight}               
-                                    ''',
-                                    style: GoogleFonts.acme(
-                                      fontSize: 25,
-                                      color: Color.fromARGB(255, 0, 0, 0),
+                              _selectedImage != null
+                                  ? Image.file(
+                                      _selectedImage!,
+                                      fit: BoxFit.cover,
+                                    )
+                                  : Icon(
+                                      Icons.person,
+                                      size: 100,
+                                      color: Colors.grey[600],
                                     ),
-                                    textAlign: TextAlign.start,
+                              Align(
+                                alignment: Alignment.bottomRight,
+                                child: Container(
+                                  height: 55,
+                                  width: 55,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(50),
+                                    ),
+                                  ),
+                                  child: const Icon(
+                                    Icons.edit,
+                                    size: 21,
+                                    color: Color.fromARGB(255, 0, 0, 0),
                                   ),
                                 ),
                               ),
@@ -254,16 +157,82 @@ Weight: ${data.personheight}
                           ),
                         ),
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: screenWidth * 0.02,
+                        ),
+                        SizedBox(
+                          child: Container(
+                            height: 370,
+                            width: 250,
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(3),
+                                bottomLeft: Radius.circular(50),
+                                topRight: Radius.circular(40),
+                                bottomRight: Radius.circular(3),
+                              ),
+                              border: Border.all(
+                                color: const Color.fromARGB(224, 255, 255,
+                                    255), // Set your desired border color here
+                                width: 2.0, // Set the border width
+                              ),
+                              color: const Color.fromARGB(255, 255, 230, 189),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey
+                                      .withOpacity(0.5), // Shadow color
+                                  spreadRadius: 3.7, // Spread radius
+                                  blurRadius: 7, // Blur radius
+                                  offset: const Offset(
+                                      1, 3), // Offset in x and y directions
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Text(
+                                      '''
+Name: ${data.personname}
+Age: ${data.personage}
+Height: ${data.personweight}
+Weight: ${data.personheight}               
+                                    ''',
+                                      style: GoogleFonts.acme(
+                                        fontSize: 25,
+                                        color: const Color.fromARGB(255, 0, 0, 0),
+                                      ),
+                                      textAlign: TextAlign.start,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      );
-    },
-  );
-}
-
+        );
+      },
+    );
+  }
 }

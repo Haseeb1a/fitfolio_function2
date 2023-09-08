@@ -15,7 +15,7 @@ class _AboutState extends State<About> {
     return Scaffold(
      appBar: AppBar(
       backgroundColor: const Color.fromARGB(225, 27, 57, 61),
-      title: Text('About'),
+      title: const Text('About'),
       centerTitle: true,
      ),
       body: SafeArea(
@@ -33,7 +33,7 @@ class _AboutState extends State<About> {
 
               color: Colors.black,
               padding: const EdgeInsets.all(10),
-               child: const Text('''Welcome to fitflilo, your easy-to-use fitness companion designed to make your fitness journey seamless and enjoyable. FitEase is perfect for anyone looking to stay active, healthy, and motivated. Whether you're a beginner or a fitness enthusiast, our app provides the tools and features you need to achieve your wellness goals with ease.
+               child: const Text('''Welcome to fitfolio, your easy-to-use fitness companion designed to make your fitness journey seamless and enjoyable. FitEase is perfect for anyone looking to stay active, healthy, and motivated. Whether you're a beginner or a fitness enthusiast, our app provides the tools and features you need to achieve your wellness goals with ease.
                        
              The app provides a selection of exercises or workouts for users to choose from. These exercises can be categorized based on muscle groups targeted, intensity level, duration, or specific fitness goals.A clear and informative image accompanies the exercise description. This image visually demonstrates the correct form and posture for performing the exercise.Underneath the image, you'll find step-by-step instructions on how to perform the exercise correctly. The instructions provide cues on body positioning, movement, and breathing technique.
                        

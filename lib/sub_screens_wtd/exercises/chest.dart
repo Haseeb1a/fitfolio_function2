@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:workouttraker/sub_screens_wtd/other_SUB/create.dart';
@@ -49,7 +51,7 @@ class Chest extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/chest (2).jpg') ,radius:31,),
                                       const SizedBox(width: 5,),
                                         Text(
-                                        'BenchPresses',
+                                        'Bench Presses',
                                         style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -99,7 +101,7 @@ class Chest extends StatelessWidget {
                
                
                                       ),
-                                      const Icon(Icons.chevron_right,color: Colors.white,)
+                                     
                                       ]
                                       
                                     )
@@ -230,7 +232,7 @@ class Chest extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/chest (2).jpg') ,radius:31,),
                                          const SizedBox(width: 5,),
                                         Text(
-                                        'BarBellBenchPress',
+                                        'BarBell BenchPress',
                                          style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -290,7 +292,6 @@ class Models extends StatelessWidget {
                   child: Text(
                     'Muscle: ${mymodel.Text}',
                     style: GoogleFonts.alegreyaSc(fontSize: 26,fontStyle: FontStyle.italic),
-                    // style: TextStyle(fontSize: 20,fontStyle: FontStyle.italic),
                   ),
                 ),
                 const SizedBox(height: 20,),
@@ -304,7 +305,7 @@ class Models extends StatelessWidget {
                   children: [FloatingActionButton(onPressed: (){
                      Navigator.push(context, MaterialPageRoute(builder:(context) => const Textng(),));
                
-                  },child: const Icon(Icons.add),backgroundColor: Colors.black,),
+                  },backgroundColor: Colors.black,child: const Icon(Icons.add),),
                    const SizedBox(width: 15,),]
                   ),
                  

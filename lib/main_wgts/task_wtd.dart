@@ -15,9 +15,9 @@ class Task extends StatefulWidget {
 }
 
 class _TaskState extends State<Task> {
-  TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
   List<Workoutmodel> filteredTasks = [];
-  bool isSearching = false;
+  bool isSearching =false;
 
   @override
   void initState() {
@@ -26,26 +26,26 @@ class _TaskState extends State<Task> {
   }
 
   void _onSearchChanged() {
-    setState(() {
-      if (_searchController.text.isEmpty) {
-        
-        isSearching = false;
-        filteredTasks = [];
-      } else {
-        isSearching = true;
-        filteredTasks = workoutListNotifier.value
-            .where((task) =>
-                task.typename
-                    .toLowerCase()
-                    .contains(_searchController.text.toLowerCase()))
-            .toList();
-      }
-    });
-  }
-  // int dayTasksCount = getWeekTasksCountwk();
+  setState(() {
+    if (_searchController.text.isEmpty) {
+      isSearching = false;
+      filteredTasks.clear();
+    
+    } else {
+      isSearching = true;
+      filteredTasks = workoutListNotifier.value
+     
+          .where((task) =>
+              task.typename
+                  .toLowerCase()
+                  .contains(_searchController.text.toLowerCase()))
+          .toList();
+    }
+  });
+}
   @override
   Widget build(BuildContext context) {
-    workoutListNotifier.notifyListeners();
+   workoutListNotifier.notifyListeners();
 
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -55,18 +55,25 @@ class _TaskState extends State<Task> {
         backgroundColor: const Color.fromARGB(225, 27, 57, 61),
         title: Container(
           width: double.infinity,
-          padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
+          padding: const EdgeInsets.only( left: 10, right: 10),
           child: TextField(
             controller: _searchController,
             decoration: InputDecoration(
               hintText: 'Search....',
               prefixIcon: const Icon(Icons.search),
+              suffixIcon:  IconButton(
+            onPressed: () {
+              
+              _searchController.clear();
+            },
+            icon: const Icon(Icons.clear),
+          ),
               filled: true,
               fillColor: const Color.fromARGB(255, 249, 249, 249),
-              contentPadding:
-                  const EdgeInsets.only(left: 14.0, bottom: 8, top: 8),
-              focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Color.fromARGB(255, 154, 16, 16)),
+              // contentPadding:
+              //     const EdgeInsets.only(left: 14.0, bottom: 8, top: 8),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: const BorderSide(color: Color.fromARGB(255, 0, 0, 0)),
                 borderRadius: BorderRadius.circular(10),
               ),
               enabledBorder: UnderlineInputBorder(
@@ -77,14 +84,6 @@ class _TaskState extends State<Task> {
             ),
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              _searchController.clear();
-            },
-            icon: const Icon(Icons.clear),
-          ),
-        ],
       ),
       body: Column(
         children: [
@@ -93,10 +92,11 @@ class _TaskState extends State<Task> {
               valueListenable: workoutListNotifier,
               builder:
                   (BuildContext ctx, List<Workoutmodel> workoutlist, Widget? child) {
+                    
                 List<Workoutmodel> tasksToDisplay =
                     isSearching ? filteredTasks : workoutlist;
 
-                if (tasksToDisplay.isEmpty) {
+                if (workoutlist.isEmpty) {
                   return Center(
                     child: SizedBox(
                       height: 245,
@@ -150,8 +150,8 @@ class _TaskState extends State<Task> {
                               );
                             },
                             icon: Icons.delete_forever_rounded,
-                            backgroundColor: const Color.fromARGB(225, 27, 57, 61),
-                            foregroundColor: Colors.red,
+                            backgroundColor: Colors.red,
+                            foregroundColor: const Color.fromARGB(255, 255, 255, 255),
                           ),
                           SlidableAction(
                             onPressed: (context) {
@@ -162,9 +162,9 @@ class _TaskState extends State<Task> {
                                     typename: data.typename,
                                     weight: data.weight,
                                     sets: data.reps,
-                                    reps: data.reps,
+                                    reps: data.sets,
                                     isChecked: false,
-                                    date: data.date!,
+                                    date: data.date,
                                     duration: data.duration,
                                     index: index,
                                   ),
@@ -172,8 +172,8 @@ class _TaskState extends State<Task> {
                               );
                             },
                             icon: Icons.edit,
-                            backgroundColor: const Color.fromARGB(225, 27, 57, 61),
-                            foregroundColor: const Color.fromARGB(255, 255, 255, 255),
+                            backgroundColor:const Color.fromARGB(255, 255, 230, 189),
+                            foregroundColor: const Color.fromARGB(255, 0, 0, 0),
                           ),
                         ]),
                         child: SizedBox(
@@ -193,7 +193,7 @@ class _TaskState extends State<Task> {
                                   data.date,
                                 ),
                                 border: Border.all(
-                                  color: Color.fromARGB(224, 255, 255, 255),
+                                  color: const Color.fromARGB(224, 255, 255, 255),
                                 ),
                               ),
                               child: Column(
@@ -217,7 +217,7 @@ class _TaskState extends State<Task> {
                                             updateTask(index, data);
 
                                             if (data.isChecked) {
-                                              Future.delayed(Duration(milliseconds: 180), () {
+                                              Future.delayed(const Duration(milliseconds: 180), () {
                                                 _showSnackbar(' ${data.typename}');
                                               });
                                             }
@@ -264,7 +264,7 @@ class _TaskState extends State<Task> {
                                         ),
                                         child: Center(
                                           child: Text(
-                                            "${data.reps} REPS",
+                                            "${data.sets} REPS",
                                             style: const TextStyle(fontSize: 19),
                                           ),
                                         ),
@@ -281,7 +281,7 @@ class _TaskState extends State<Task> {
                                         ),
                                         child: Center(
                                           child: Text(
-                                            " ${data.sets} SETS",
+                                            " ${data.reps} SETS",
                                             style: const TextStyle(fontSize: 19),
                                           ),
                                         ),
@@ -330,10 +330,10 @@ class _TaskState extends State<Task> {
         backgroundColor: Colors.white,
         content: Row(
           children: [
-            Icon(Icons.check_circle_rounded, color: Colors.green),
+            const Icon(Icons.check_circle_rounded, color: Colors.green),
             Text(
-              ' ${message} task is completed.!',
-              style: TextStyle(color: Colors.black),
+              ' $message task is completed.!',
+              style: const TextStyle(color: Colors.black),
             ),
           ],
         ),
@@ -347,10 +347,10 @@ class _TaskState extends State<Task> {
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         content: Row(
           children: [
-            Icon(Icons.delete_forever_rounded, color: Colors.red),
+            const Icon(Icons.delete_forever_rounded, color: Colors.red),
             Text(
               ' $message task is deleted',
-              style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)),
+              style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
             ),
           ],
         ),

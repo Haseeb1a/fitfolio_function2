@@ -1,14 +1,11 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:hive_flutter/adapters.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workouttraker/main_wgts/home_ex.dart';
 import 'package:workouttraker/sub_screens_wtd/other_sub/darwerprofile.dart';
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -43,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
          toolbarHeight: 75,
         backgroundColor: const Color.fromARGB(225, 27, 57, 61),
-        title: Text('Exercises'),
+        title: const Text('Exercises'),
         actions: [
           if (_profileImagePath != null)
             Container(
@@ -66,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       drawer: MyDrawer(onProfileImageChanged: onProfileImageChanged),
-      body: HomeEx(),
+      body: const HomeEx(),
     );
   }
 }
@@ -74,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
 class MyDrawer extends StatelessWidget {
   final void Function(String?) onProfileImageChanged;
 
-  MyDrawer({required this.onProfileImageChanged});
+  const MyDrawer({super.key, required this.onProfileImageChanged});
 
   @override
   Widget build(BuildContext context) {

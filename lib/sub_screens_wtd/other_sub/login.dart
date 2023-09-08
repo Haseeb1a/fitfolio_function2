@@ -1,16 +1,8 @@
-
-// ---------------------------------------------------------------------------
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:workouttraker/function/db_functions/db_person.dart';
 import 'package:workouttraker/main_wgts/bottom_main.dart';
 import 'package:workouttraker/model/person_model/persondata.dart';
-import '../../function/db_functions/db_functions.dart';
-
-import 'package:flutter/material.dart';
-import 'package:workouttraker/main_wgts/bottom_main.dart';
-import 'package:workouttraker/model/person_model/persondata.dart';
-import '../../function/db_functions/db_person.dart';
 import 'package:flutter/services.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -20,6 +12,8 @@ class LoginScreen extends StatelessWidget {
   final _personweightController = TextEditingController();
   final _personageController = TextEditingController();
 
+  LoginScreen({super.key});
+
   String? _validateTextField(String? value) {
     if (value == null || value.isEmpty) {
       return 'This field is required';
@@ -28,27 +22,27 @@ class LoginScreen extends StatelessWidget {
   }
 
   Future<void> onAddTaskButtonPressed(BuildContext context) async {
-    final _personname = _nameController.text.trim();
-    final _personheight = _personheightController.text.trim();
-    final _personweight = _personweightController.text.trim();
-    final _personage = _personageController.text.trim();
+    final personname = _nameController.text.trim();
+    final personheight = _personheightController.text.trim();
+    final personweight = _personweightController.text.trim();
+    final personage = _personageController.text.trim();
 
-    if (_personname.isEmpty ||
-        _personage.isEmpty ||
-        _personheight.isEmpty ||
-        _personweight.isEmpty) {
+    if (personname.isEmpty ||
+        personage.isEmpty ||
+        personheight.isEmpty ||
+        personweight.isEmpty) {
       return;
     }
 
-    final _task = persondata(
-      personname: _personname,
-      personage: _personage,
-      personweight: _personweight,
-      personheight: _personheight,
+    final task = persondata(
+      personname: personname,
+      personage: personage,
+      personweight: personweight,
+      personheight: personheight,
       
     );
 
-    addperson(_task); // Assuming addperson is an asynchronous function
+    addperson(task); // Assuming addperson is an asynchronous function
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => const ScreeenHome()),
@@ -164,11 +158,11 @@ class LoginScreen extends StatelessWidget {
                                   onAddTaskButtonPressed(context);
                                 }
                               },
-                              child: const Text('Submit'),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.black,
                                 shape: const StadiumBorder(),
                               ),
+                              child: const Text('Submit'),
                             ),
                           ),
                         ],

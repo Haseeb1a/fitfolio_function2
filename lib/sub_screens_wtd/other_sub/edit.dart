@@ -45,9 +45,8 @@ class _UpdateScreenState extends State<UpdateScreen> {
     super.initState();
     _typenameController.text = widget.typename;
     _weightController.text = widget.weight;
-     _repsController.text = widget.reps;
     _setsController.text = widget.sets;
-   
+    _repsController.text = widget.reps; 
     _dateController.text = DateFormat('yyyy-MM-dd').format(widget.date);
     _dropdownController.text = widget.duration;
     // _isChecked = widget.isChecked;
@@ -78,9 +77,10 @@ class _UpdateScreenState extends State<UpdateScreen> {
     return Scaffold(
       appBar: AppBar(backgroundColor: const Color.fromARGB(225, 27, 57, 61)),
       body: AlertDialog(
-        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-        title: const Text('Update Workout'),
-        content: Container(
+        backgroundColor: const Color.fromARGB(225, 27, 57, 61),
+        title: const Text('Update Task'),
+
+        content: SizedBox(
           height: 380,
           child: SingleChildScrollView(
             child: Form(
@@ -217,13 +217,14 @@ class _UpdateScreenState extends State<UpdateScreen> {
           MaterialButton(
             onPressed: () {
                if (_formKey.currentState!.validate()){
+                  //  print('Updating task at index: ${widget.index}');
               Workoutmodel studentmodel = Workoutmodel(
                 id: widget.index,
                 typename: _typenameController.text,
                 weight: _weightController.text,
-                    reps: _repsController.text,
-                sets: _setsController.text,
-            
+                sets: _repsController.text,
+                reps: _setsController.text,
+                // sets: _setsController.text,
                 date: DateTime.parse(_dateController.text),
                 duration: _dropdownController.text,
                 // isChecked: widget.isChecked,

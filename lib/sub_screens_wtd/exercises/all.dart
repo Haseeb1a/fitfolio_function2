@@ -1,8 +1,7 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:workouttraker/function/db_functions/db_functions.dart';
-import 'package:workouttraker/model/task_model/workoutmodel1.dart';
-import 'package:intl/intl.dart';
 import 'package:workouttraker/sub_screens_wtd/other_sub/create.dart';
 
 class All extends StatelessWidget {
@@ -51,7 +50,7 @@ class All extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/all.jpg') ,radius:31,),
                                       const SizedBox(width: 5,),
                                         Text(
-                                        'LineBenchSitUPLast',
+                                        'Incline Bench Sit-Up',
                                         style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -95,7 +94,7 @@ class All extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/all.jpg') ,radius:31,),
                                       const SizedBox(width: 5,),
                                         Text(
-                                        'SideBridge',
+                                        'Side Bridge',
                                           style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -140,7 +139,7 @@ class All extends StatelessWidget {
                                       children:[  const CircleAvatar( backgroundImage: AssetImage('assets/images/all.jpg') ,radius:31,),
                                       const SizedBox(width: 5,),
                                         Text(
-                                        'DeadLiftLast',
+                                        'Dead Lifts',
                                          style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -269,7 +268,7 @@ class All extends StatelessWidget {
                                       children:[ const  CircleAvatar( backgroundImage: AssetImage('assets/images/all.jpg') ,radius:31,),
                                       const SizedBox(width: 5,),
                                         Text(
-                                        'Dumeellshrugs ',
+                                        'Dumeell shrugs ',
                                           style: GoogleFonts.alegreyaSc(fontSize: fontSize,color: Colors.white),
                
                                       ),]
@@ -352,7 +351,7 @@ class _ModelsState extends State<Models> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [FloatingActionButton(onPressed: (){
                      Navigator.push(context, MaterialPageRoute(builder:(context) =>const  Textng(),));
-                },child: const Icon(Icons.add),backgroundColor: Colors.black,),
+                },backgroundColor: Colors.black,child: const Icon(Icons.add),),
                  const SizedBox(width: 15,),]
                 ),
                
@@ -370,7 +369,9 @@ class _ModelsState extends State<Models> {
 
 class Mymodel {
   final String images;
+  // ignore: non_constant_identifier_names
   final String Text;
+  // ignore: non_constant_identifier_names
   final String Text1;
 
   Mymodel(this.images, this.Text,this.Text1);

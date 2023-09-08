@@ -209,8 +209,9 @@ class _ProfileState extends State<Profile> {
                                       '''
 Name: ${data.personname}
 Age: ${data.personage}
+Weight: ${data.personheight} 
 Height: ${data.personweight}
-Weight: ${data.personheight}               
+              
                                     ''',
                                       style: GoogleFonts.acme(
                                         fontSize: 25,

@@ -1,6 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:workouttraker/function/db_functions/db_functions.dart';
+import 'package:workouttraker/utility/chartfunction.dart';
 class Chart extends StatefulWidget {
   final bool checkboxStatus;
   final DateTime currentDate;
@@ -67,7 +68,7 @@ class ChartState extends State<Chart> {
         Row(
           children: [
             const Icon(Icons.clear_outlined, color: Colors.red),
-            Text('Not Completed ${_selectedValue == 'Day' ? daydiffrence: _selectedValue == 'Week' ? weekdiffrence : _selectedValue == 'Month' ? monthdiffrence : 0}'),
+            Text('Incompleted ${_selectedValue == 'Day' ? daydiffrence: _selectedValue == 'Week' ? weekdiffrence : _selectedValue == 'Month' ? monthdiffrence : 0}'),
           ],
         ),
       ],
